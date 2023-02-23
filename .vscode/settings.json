@@ -1,0 +1,28 @@
+{
+    "typescript.tsdk": "./node_modules/typescript/lib",
+    "tslint.enable": false,
+    "tslint.autoFixOnSave": false,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.exclude": {
+        "**/._*": true,
+        "node_modules": true,
+        "packages": true,
+        ".cache": true
+    },
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": true
+    },
+    "prettier.tabWidth": 4,
+    "prettier.printWidth": 120,
+    "prettier.singleQuote": true,
+    "prettier.jsxBracketSameLine": true,
+    "prettier.disableLanguages": [
+        "markdown"
+    ],
+    "[ejs]": {
+        "editor.insertSpaces": true,
+        "editor.tabSize": 2
+    }
+}

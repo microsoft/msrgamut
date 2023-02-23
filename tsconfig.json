@@ -1,0 +1,23 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "outDir": "dist/es6",
+        "experimentalDecorators": true,
+        "importHelpers": true,
+        "jsx": "react",
+        "keyofStringsOnly": true,
+        "module": "commonjs",
+        "noImplicitAny": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "preserveConstEnums": true,
+        "removeComments": true,
+        "resolveJsonModule": true,
+        "sourceMap": true,
+        "strictNullChecks": false,
+        "target": "es6"
+    },
+    "include": [
+        "src"
+    ]
+}
