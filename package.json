@@ -32,7 +32,6 @@
         "react-dom": "^16.8.3",
         "react-scroll-to-component": "^1.0.2",
         "react-split-pane": "^0.1.85",
-        "src": "^1.1.2",
         "typestyle": "^2.0.1",
         "warning": "^4.0.3"
     },
