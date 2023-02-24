@@ -15,7 +15,8 @@
         "resolveJsonModule": true,
         "sourceMap": true,
         "strictNullChecks": false,
-        "target": "es6"
+        "target": "es6",
+        "skipLibCheck": true
     },
     "include": [
         "src"
