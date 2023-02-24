@@ -15,9 +15,9 @@
         "react-dom": "./alias/react-dom-external.js"
     },
     "dependencies": {
-        "ag-grid-community": "20.0.0",
-        "ag-grid-react": "20.0.0",
-        "axios": "^0.21.2",
+        "ag-grid-community": "^29.1.0",
+        "ag-grid-react": "^29.1.0",
+        "axios": "^1.3.4",
         "d3-array": "^2.0.3",
         "d3-axis": "^1.0.12",
         "d3-format": "^1.3.2",
@@ -32,7 +32,7 @@
         "react-dom": "^16.8.3",
         "react-scroll-to-component": "^1.0.2",
         "react-split-pane": "^0.1.85",
-        "typestyle": "^2.0.1",
+        "typestyle": "^2.4.0",
         "warning": "^4.0.3"
     },
     "devDependencies": {
@@ -46,10 +46,10 @@
         "@types/d3-scale-chromatic": "^1.3.1",
         "@types/d3-selection": "^1.4.1",
         "@types/d3-shape": "^1.3.1",
-        "@types/express": "^4.16.1",
+        "@types/express": "^4.17.17",
         "@types/inline-style-prefixer": "^3.0.1",
-        "@types/react": "^16.8.4",
-        "@types/react-dom": "^16.8.2",
+        "@types/react": "^16.14.35",
+        "@types/react-dom": "^16.9.18",
         "@types/react-split-pane": "^0.1.67",
         "@types/warning": "^3.0.0",
         "less": "^4.1.3",
