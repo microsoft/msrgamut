@@ -5,7 +5,7 @@
     "scripts": {
         "manifest": "node ./scripts/manifest.js",
         "compile": "tsc -p .",
-        "build": "parcel build src/index.html --no-minify --out-dir site",
+        "build": "parcel build src/index.html --no-optimize --dist-dir site",
         "start": "parcel src/index-local.html --open",
         "remove-pem": "rimraf **/*.pem && rimraf **/*.key",
         "tslint": "tslint -p . --fix"
