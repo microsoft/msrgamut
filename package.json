@@ -5,6 +5,7 @@
     "scripts": {
         "manifest": "node ./scripts/manifest.js",
         "compile": "tsc -p .",
+        "prebuild": "rimraf site/index*.*",
         "build": "parcel build src/index.html --no-optimize --dist-dir site",
         "start": "parcel src/index-local.html --open",
         "remove-pem": "rimraf **/*.pem && rimraf **/*.key",
@@ -57,7 +58,7 @@
         "less": "^4.1.3",
         "parcel": "^2.8.3",
         "process": "^0.11.10",
-        "rimraf": "^4.1.2",
+        "rimraf": "^3.0.2",
         "tslint": "^6.1.3",
         "tslint-microsoft-contrib": "^6.2.0",
         "typescript": "^4.9.5"
