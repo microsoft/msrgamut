@@ -367,7 +367,7 @@ export const appStore = new AppStore();
 
 if (location.search.substring(1) === 'embed') {
     window.addEventListener('message', e => {
-        if (e && e.origin !== 'https://sanddance.js.org' && e.data) {
+        if (e && e.origin !== 'https://microsoft.github.io' && e.data) {
             const { gamJson, instanceData, descriptions } = e.data as { gamJson: IGamJson, instanceData: InstanceData[], descriptions?: IDescriptions };
             if (gamJson && instanceData) {
                 appStore.createModel(gamJson, instanceData, descriptions);

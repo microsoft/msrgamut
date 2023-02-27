@@ -96,7 +96,7 @@ export class InstanceTable extends React.Component<IInstanceTableProps> {
                     </span>
                     <a href="#"
                         onClick={e => {
-                            window.open('https://sanddance.js.org/embed/v2/sanddance-embed-privacy-footer.html', '_blank');
+                            window.open('https://microsoft.github.io/SandDance/embed/v4/sanddance-embed.html', '_blank');
                             e.preventDefault();
                         }}
                         style={{ position: 'absolute', right: '0.5em', fontSize: '12px' }}>open in SandDance</a>
@@ -150,7 +150,7 @@ export class InstanceTable extends React.Component<IInstanceTableProps> {
 let currentTableData: any[];
 
 window.addEventListener('message', e => {
-    if (e.origin === 'https://sanddance.js.org') {
+    if (e.origin === 'https://microsoft.github.io') {
         const { request } = e.data as { request: { action: string } };
         if (request) {
             switch (request.action) {
