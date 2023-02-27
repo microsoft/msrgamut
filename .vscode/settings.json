@@ -6,7 +6,6 @@
     "files.insertFinalNewline": true,
     "files.exclude": {
         "**/._*": true,
-        "node_modules": true,
         "packages": true,
         ".cache": true
     },
