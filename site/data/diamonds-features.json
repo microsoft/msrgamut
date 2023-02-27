@@ -1,0 +1,11 @@
+{
+    "carat": "Weight of the diamond",
+    "cut": "Quality of the cut: Fair=0, Good=1, Very Good=2, Premium=3, Ideal=4",
+    "color": "Diamond colour: from J (worst) to D (best)",
+    "clarity": "A measurement of how clear the diamond is: I1=0 (worst), SI2=1, SI1=2, VS2=3, VS1=4, VVS2=5, VVS1=6, IF=7 (best)",
+    "depth": "Total depth percentage = z / mean(x, y) = 2 * z / (x + y)",
+    "table": "Width of top of diamond relative to widest point",
+    "x": "Length in mm",
+    "y": "Width in mm",
+    "z": "Depth in mm"
+}

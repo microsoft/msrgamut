@@ -1,0 +1,10 @@
+{
+    "pregnant": "The number of times the woman got pregnant during her life",
+    "glucose": "Plasma glucose concentration at 2 hours in an oral glucose tolerance test",
+    "diastolic": "Blood pressure is a very well-known way to measure the health of the heart of a person, there are too measure in fact, the diastolic and the systolic. In this data set, we have the diastolic which is in the fact the pressure in (mm/Hg) when the heart relaxed after the contraction",
+    "triceps": "Used to estimate body fat (mm) which is measured on the right arm halfway between the olecranon process of the elbow and the acromial process of the scapula.",
+    "insulin": "Rate of insulin 2 hours serum insulin (mu U/ml)",
+    "bmi": "Body Mass Index (weight in kg / (height in meters squared), and is an indicator of the health of a person",
+    "diabetes": "Indicator of history of diabetes in the family",
+    "age": "Age in years"
+}

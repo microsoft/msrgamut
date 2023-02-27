@@ -1,0 +1,9 @@
+{
+    "Pclass": "Ticket class",
+    "Sex": "Sex of passenger: 0=male, 1=female",
+    "Age": "Age in years",
+    "SibSp": "Number of siblings / spouses aboard the Titanic",
+    "Parch": "Number of parents / children aboard the Titanic",
+    "Fare": "Passenger fare in pounds",
+    "Embarked": "Port of embarkation: Cherbourg=0, Queenstown=1, Southampton=2"
+}

@@ -1,0 +1,79 @@
+{
+  "default": "income",
+  "datasets": [
+    {
+      "name": "ames-housing (pygam)",
+      "type": "pygam",
+      "descriptions": "ames-housing-features.json",
+      "model": "ames-housing-gam.json",
+      "instances": "ames-housing-gam-instance-data.json"
+    },
+    {
+      "name": "ames-housing (interpretML, EBM)",
+      "type": "ga²m",
+      "model": "newames-gaam.json",
+      "instances": "newames-gaam-instance-data.json"
+    },
+    {
+      "name": "Titanic (R dataset, interprel ML EBM)",
+      "type": "ga²m",
+      "model": "newtitanic-gaam.json",
+      "instances": "newtitanic-gaam-instance-data.json"
+    },
+    {
+      "name": "titanic. (R Dataset, pyGam)",
+      "type": "pygam",
+      "descriptions": "titanic-features.json",
+      "model": "titanic-gam.json",
+      "instances": "titanic-gam-instance-data.json"
+    },
+    {
+      "name": "income (UCI ML dataset, interpret ML)",
+      "type": "ga²m",
+      "model": "income-gaam.json",
+      "instances": "income-gaam-instance-data.json"
+    },
+    {
+      "name": "heart-disease (UCI ML dataset, pyGam)",
+      "type": "pygam",
+      "descriptions": "heart-attack-features.json",
+      "model": "heart-attack-gam.json",
+      "instances": "heart-attack-gam-instance-data.json"
+    },
+    {
+      "name": "red-wine (UCI ML dataset, pyGam)",
+      "type": "pygam",
+      "descriptions": "red-wine-features.json",
+      "model": "red-wine-gam.json",
+      "instances": "red-wine-gam-instance-data.json"
+    },
+    {
+      "name": "yacht hydrodynamics (UCI dataset, pyGam)",
+      "type": "pygam",
+      "descriptions": "",
+      "model": "yacht-gam.json",
+      "instances": "yacht-gam-instance-data.json"
+    },
+    {
+      "name": "diamonds (R dataset, pyGam)",
+      "type": "pygam",
+      "descriptions": "diamonds-features.json",
+      "model": "diamonds-gam.json",
+      "instances": "diamonds-gam-instance-data.json"
+    },
+    {
+      "name": "Boston Neighborhood Housing (R dataset, pyGam)",
+      "type": "pygam",
+      "descriptions": "housing-features.json",
+      "model": "housing-gam.json",
+      "instances": "housing-gam-instance-data.json"
+    },
+    {
+      "name": "PIMA diabetes in Indian Women (R dataset, pyGam)",
+      "type": "pygam",
+      "descriptions": "pima-features.json",
+      "model": "pima-gam.json",
+      "instances": "pima-gam-instance-data.json"
+    }
+  ]
+}
