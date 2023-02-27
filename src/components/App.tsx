@@ -1,4 +1,4 @@
-import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
+import { createTheme, MuiThemeProvider } from '@material-ui/core';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { observer } from 'mobx-react';
 import * as React from 'react';
@@ -7,7 +7,7 @@ import { Chrome } from "./Chrome";
 import { Content } from "./Content";
 import { FeatureArea } from "./features/FeaturesArea";
 
-const theme = createMuiTheme({
+const theme = createTheme({
     typography: {
         // In Japanese the characters are usually larger.
         fontSize: 12,
