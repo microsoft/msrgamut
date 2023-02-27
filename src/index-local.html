@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GAM Visualizer</title>
+</head>
+
+<body>
+    <div style="display: none">
+        <!-- link to JSON files so we can get a url from the bundler -->
+        <a class="gamut-app-content-bundled" id="manifest" href="../site/data/_manifest.json"></a>
+
+        <!--copied from scripts/manifest.js output-->
+        <a class="gamut-app-content-bundled" id="ames-housing-features_json"
+            href="../site/data/ames-housing-features.json"></a>
+        <a class="gamut-app-content-bundled" id="ames-housing-gam_json" href="../site/data/ames-housing-gam.json"></a>
+        <a class="gamut-app-content-bundled" id="ames-housing-gam-instance-data_json"
+            href="../site/data/ames-housing-gam-instance-data.json"></a>
+        <a class="gamut-app-content-bundled" id="diamonds-features_json" href="../site/data/diamonds-features.json"></a>
+        <a class="gamut-app-content-bundled" id="diamonds-gam_json" href="../site/data/diamonds-gam.json"></a>
+        <a class="gamut-app-content-bundled" id="diamonds-gam-instance-data_json"
+            href="../site/data/diamonds-gam-instance-data.json"></a>
+        <a class="gamut-app-content-bundled" id="heart-attack-features_json"
+            href="../site/data/heart-attack-features.json"></a>
+        <a class="gamut-app-content-bundled" id="heart-attack-gam_json" href="../site/data/heart-attack-gam.json"></a>
+        <a class="gamut-app-content-bundled" id="heart-attack-gam-instance-data_json"
+            href="../site/data/heart-attack-gam-instance-data.json"></a>
+        <a class="gamut-app-content-bundled" id="housing-features_json" href="../site/data/housing-features.json"></a>
+        <a class="gamut-app-content-bundled" id="housing-gam_json" href="../site/data/housing-gam.json"></a>
+        <a class="gamut-app-content-bundled" id="housing-gam-instance-data_json"
+            href="../site/data/housing-gam-instance-data.json"></a>
+        <a class="gamut-app-content-bundled" id="income-gaam_json" href="../site/data/income-gaam.json"></a>
+        <a class="gamut-app-content-bundled" id="income-gaam-instance-data_json"
+            href="../site/data/income-gaam-instance-data.json"></a>
+        <a class="gamut-app-content-bundled" id="newames-gaam_json" href="../site/data/newames-gaam.json"></a>
+        <a class="gamut-app-content-bundled" id="newames-gaam-instance-data_json"
+            href="../site/data/newames-gaam-instance-data.json"></a>
+        <a class="gamut-app-content-bundled" id="newtitanic-gaam_json" href="../site/data/newtitanic-gaam.json"></a>
+        <a class="gamut-app-content-bundled" id="newtitanic-gaam-instance-data_json"
+            href="../site/data/newtitanic-gaam-instance-data.json"></a>
+        <a class="gamut-app-content-bundled" id="pima-features_json" href="../site/data/pima-features.json"></a>
+        <a class="gamut-app-content-bundled" id="pima-gam_json" href="../site/data/pima-gam.json"></a>
+        <a class="gamut-app-content-bundled" id="pima-gam-instance-data_json"
+            href="../site/data/pima-gam-instance-data.json"></a>
+        <a class="gamut-app-content-bundled" id="red-wine-features_json" href="../site/data/red-wine-features.json"></a>
+        <a class="gamut-app-content-bundled" id="red-wine-gam_json" href="../site/data/red-wine-gam.json"></a>
+        <a class="gamut-app-content-bundled" id="red-wine-gam-instance-data_json"
+            href="../site/data/red-wine-gam-instance-data.json"></a>
+        <a class="gamut-app-content-bundled" id="titanic-features_json" href="../site/data/titanic-features.json"></a>
+        <a class="gamut-app-content-bundled" id="titanic-gam_json" href="../site/data/titanic-gam.json"></a>
+        <a class="gamut-app-content-bundled" id="titanic-gam-instance-data_json"
+            href="../site/data/titanic-gam-instance-data.json"></a>
+        <a class="gamut-app-content-bundled" id="yacht-gam_json" href="../site/data/yacht-gam.json"></a>
+        <a class="gamut-app-content-bundled" id="yacht-gam-instance-data_json"
+            href="../site/data/yacht-gam-instance-data.json"></a>
+        <!-- end of copy -->
+    </div>
+
+    <div id="root"></div>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="index.tsx" type="module"></script>
+
+    <footer>
+        <a href="https://www.microsoft.com/en-us/research/project/msrgamut/">About Gamut</a>
+        <span>This site does not collect any personal information or use cookies.</span>
+        <a href="https://go.microsoft.com/fwlink/?LinkId=521839">Privacy &amp; Cookies</a>
+        <a href="https://go.microsoft.com/fwlink/?LinkID=246338">Terms of Use</a>
+        <span>©2020 Microsoft.</span>
+    </footer>
+</body>
+
+</html>
