@@ -52,7 +52,6 @@
         "@types/inline-style-prefixer": "^3.0.1",
         "@types/react": "^16.14.35",
         "@types/react-dom": "^16.9.18",
-        "@types/react-split-pane": "^0.1.67",
         "@types/warning": "^3.0.0",
         "@typescript-eslint/eslint-plugin": "^5.54.0",
         "@typescript-eslint/parser": "^5.54.0",
