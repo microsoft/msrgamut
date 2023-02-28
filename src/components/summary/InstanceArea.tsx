@@ -18,48 +18,48 @@ export interface InstanceAreaProps {
     model: Model;
 }
 
-const headerStyle: React.CSSProperties = { padding: "0px 10px" };
+const headerStyle: React.CSSProperties = { padding: '0px 10px' };
 
 @observer
 export class InstanceArea extends React.Component<InstanceAreaProps> {
-    @observable sortOrder: string = "Absolute Contribution";
-    sortOrders = ["Contribution", "Absolute Contribution", "Differences"];
+    @observable sortOrder: string = 'Absolute Contribution';
+    sortOrders = ['Contribution', 'Absolute Contribution', 'Differences'];
 
 
     public instanceArea(anInstance: InstanceData, watModel: WaterFallModel, extent: [number, number]) {
-        const formatComma = format(",.2f");
+        const formatComma = format(',.2f');
         const { model } = this.props;
         const prediction = model.getPrediction(anInstance);
         const instanceHeader = (anInstance === null) ? <div style={headerStyle}>Differences: </div> :
             <div style={headerStyle}>
-                <div style={{ display: "flex", float: "left", paddingTop: "5px" }}>
-                    Instance <span style={{ paddingLeft: "5px", paddingRight: "50px" }} >{anInstance.id}</span>
+                <div style={{ display: 'flex', float: 'left', paddingTop: '5px' }}>
+                    Instance <span style={{ paddingLeft: '5px', paddingRight: '50px' }} >{anInstance.id}</span>
                 </div>
 
-                <div style={{ display: "flex", padding: "0px", flexDirection: "row" }}>
-                    <div style={{ display: "flex", paddingBottom: "5px" }}>
+                <div style={{ display: 'flex', padding: '0px', flexDirection: 'row' }}>
+                    <div style={{ display: 'flex', paddingBottom: '5px' }}>
                         <div className="label" >Actual:</div>
                         <div className="value-label">
                             {formatComma(anInstance.y)}
                             <div className="colorbox" style={{ backgroundColor: this.props.colorDRPrediction(anInstance.y) }}></div>
                         </div>
                     </div>
-                    <div style={{ display: "flex", paddingBottom: "5px" }}>
-                        <div className="label" style={{ padding: "5px" }}>Prediction:</div>
+                    <div style={{ display: 'flex', paddingBottom: '5px' }}>
+                        <div className="label" style={{ padding: '5px' }}>Prediction:</div>
                         <div className="value-label">
                             {formatComma(prediction)}
                             <div className="colorbox" style={{ backgroundColor: this.props.colorDRPrediction(prediction) }}></div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>;
         const instanceBody = (anInstance === null) ?
             <FeatureDiffChart data={watModel.data} intercept={model.intercept} /> :
             <WaterfallChart model={watModel} intercept={model.intercept} forceExtents={extent} />;
 
 
         return (
-            <div style={{ paddingBottom: "30px" }}>
+            <div style={{ paddingBottom: '30px' }}>
                 {instanceHeader}
                 {instanceBody}
             </div>);
@@ -68,10 +68,10 @@ export class InstanceArea extends React.Component<InstanceAreaProps> {
     public differenceArea(theData: InstanceFieldData[]) {
         const { model } = this.props;
         const instanceHeader = <div style={headerStyle}>Differences: </div>;
-        const instanceBody = <FeatureDiffChart data={theData} intercept={model.intercept} />
+        const instanceBody = <FeatureDiffChart data={theData} intercept={model.intercept} />;
 
         return (
-            <div style={{ paddingBottom: "30px" }}>
+            <div style={{ paddingBottom: '30px' }}>
                 {instanceHeader}
                 {instanceBody}
             </div>);
@@ -79,7 +79,7 @@ export class InstanceArea extends React.Component<InstanceAreaProps> {
 
     simpleOutArea(anInstance: InstanceData): JSX.Element {
         const { model } = this.props;
-        var instanceData = anInstance.data.slice();
+        const instanceData = anInstance.data.slice();
 
         if (this.sortOrder === 'Contribution') {
             instanceData.sort((x, y) => descending(x.pdep, y.pdep));
@@ -87,21 +87,21 @@ export class InstanceArea extends React.Component<InstanceAreaProps> {
             instanceData.sort((x, y) => descending(Math.abs(x.pdep), Math.abs(y.pdep)));
         }
         const myWat1 = new WaterFallModel(instanceData, model.intercept);
-        let [minx, maxx] = myWat1.getExtents()
+        const [minx, maxx] = myWat1.getExtents();
 
         return (this.instanceArea(anInstance, myWat1, [minx, maxx]));
     }
 
     compoundOutArea(instance1: InstanceData, instance2: InstanceData): JSX.Element {
         const { model } = this.props;
-        var instanceData1: InstanceFieldData[] = instance1.data.slice();
-        var instanceData2: InstanceFieldData[] = instanceData2 = instance2.data.slice();
-        var differenceData: InstanceFieldData[] = instanceData1.map(obj => {
-            let ele = instanceData2.find(d => d.name === obj.name);
-            let newele = { ...ele };
+        const instanceData1: InstanceFieldData[] = instance1.data.slice();
+        const instanceData2: InstanceFieldData[] = instance2.data.slice();
+        const differenceData: InstanceFieldData[] = instanceData1.map(obj => {
+            const ele = instanceData2.find(d => d.name === obj.name);
+            const newele = { ...ele };
             newele.pdep = obj.pdep - newele.pdep;
             return (newele);
-        })
+        });
 
         // if sorting by either Contribution or Absolute Contribution, then sort the primary results first by that order
         if (this.sortOrder === 'Contribution') {
@@ -123,18 +123,18 @@ export class InstanceArea extends React.Component<InstanceAreaProps> {
         }
 
         const myWat1 = new WaterFallModel(instanceData1, model.intercept);
-        let [minx1, maxx1] = myWat1.getExtents()
+        const [minx1, maxx1] = myWat1.getExtents();
 
         const myWat2 = new WaterFallModel(instanceData2, model.intercept);
-        let [minx2, maxx2] = myWat2.getExtents()
+        const [minx2, maxx2] = myWat2.getExtents();
 
-        let minx = Math.min(minx1, minx2);
-        let maxx = Math.max(maxx1, maxx2);
+        const minx = Math.min(minx1, minx2);
+        const maxx = Math.max(maxx1, maxx2);
 
-        let instanceArea1: JSX.Element = this.instanceArea(appStore.selectedInstance, myWat1, [minx, maxx]);
-        let instanceArea2: JSX.Element = (instance2 != null) ? this.instanceArea(appStore.selectedInstance2, myWat2, [minx, maxx]) : <div> </div>;
+        const instanceArea1: JSX.Element = this.instanceArea(appStore.selectedInstance, myWat1, [minx, maxx]);
+        const instanceArea2: JSX.Element = (instance2 != null) ? this.instanceArea(appStore.selectedInstance2, myWat2, [minx, maxx]) : <div> </div>;
 
-        let instanceAreaDiff = (instance2 != null) ? this.differenceArea(differenceData) : <div> </div>;
+        const instanceAreaDiff = (instance2 != null) ? this.differenceArea(differenceData) : <div> </div>;
 
         return (<div>
             {instanceArea1}
@@ -147,7 +147,7 @@ export class InstanceArea extends React.Component<InstanceAreaProps> {
         const instance = appStore.selectedInstance;
         const instance2 = appStore.selectedInstance2;
         if (!instance) { return null; }
-        var outputArea: JSX.Element = null;
+        let outputArea: JSX.Element = null;
         if (instance2 == null) {
             outputArea = this.simpleOutArea(instance);
         } else {

@@ -15,7 +15,7 @@ const { styleDiv } = getStylist('SummaryArea');
 const Container = styleDiv('Container', {
     display: 'flex',
     flexDirection: 'column',
-    position: 'relative'
+    position: 'relative',
 });
 
 const TOTAL_FEATURE = 'TOTAL';
@@ -36,7 +36,7 @@ export class WaterFallModel {
         const model = appStore.model;
         for (let i = 0; i < this.data.length; i++) {
             if (model.getType(this.data[i].name) != FeatureType.Unused) {
-                const pdep = this.data[i].pdep
+                const pdep = this.data[i].pdep;
                 this.waterfallData.push({ ...this.data[i], start: cumulative, end: cumulative + pdep });
                 cumulative += pdep;
             }
@@ -45,12 +45,12 @@ export class WaterFallModel {
             name: TOTAL_FEATURE,
             end: cumulative,
             start: cumulative,
-            X: 0, pdep: 0, confi_u_X: 0, confi_l_X: 0
+            X: 0, pdep: 0, confi_u_X: 0, confi_l_X: 0,
         });
     }
 
     getExtents(): [number, number] {
-        let waterfallExtent: [number, number] = extent(this.waterfallData, d => d.end);
+        const waterfallExtent: [number, number] = extent(this.waterfallData, d => d.end);
         return waterfallExtent;
     }
 }
@@ -87,19 +87,19 @@ export class WaterfallChart extends React.Component<WaterfallChartProps> {
 
         waterfallX.domain(model.waterfallData.map(d => d.name));
         //let waterfallExtent: [number, number] = model.getExtents();
-        let waterfallExtent: [number, number] = forceExtents;
+        const waterfallExtent: [number, number] = forceExtents;
         // go to 10% below and above intercept or min,max values
-        let domainpad: number = (forceExtents[1] - forceExtents[0]) * 0.1;
+        const domainpad: number = (forceExtents[1] - forceExtents[0]) * 0.1;
         waterfallY.domain([min([intercept - domainpad, forceExtents[0] - domainpad]), max([intercept + domainpad, forceExtents[1] + domainpad])]);
         //waterfallY.domain([min([intercept, forceExtents[0]]), max([intercept, forceExtents[1]])]);
         //waterfallY.domain([min([0, forceExtents[0]]), max([intercept, forceExtents[1]])]);
         ////waterfallY.domain([min([0, waterfallExtent[0]]), max([intercept, waterfallExtent[1]])]);
-        const formatComma = format(",.2f");
+        const formatComma = format(',.2f');
 
         const hoverData = appStore.hoverFeature ? model.waterfallData.find(d => d.name === appStore.hoverFeature) : undefined;
 
         return (
-            <Container style={{ padding: "10px" }}>
+            <Container style={{ padding: '10px' }}>
                 <svg className="waterfall-chart" width={waterfallSVGWidth} height={waterfallSVGHeight}>
 
                     <g transform={`translate(${waterfallMargin.left},${waterfallMargin.top})`}>
@@ -119,7 +119,7 @@ export class WaterfallChart extends React.Component<WaterfallChartProps> {
                             model.waterfallData.map(d =>
                                 <g key={d.name} className="waterfall-bar" transform={`translate(${waterfallX(d.name)},0)`}>
                                     <rect
-                                        className={`waterfall-bar-rect bar bar--${d.pdep < 0 ? "negative" : "positive"} ${d.name === appStore.hoverFeature ? 'hover' : ''}`}
+                                        className={`waterfall-bar-rect bar bar--${d.pdep < 0 ? 'negative' : 'positive'} ${d.name === appStore.hoverFeature ? 'hover' : ''}`}
                                         y={waterfallY(Math.max(d.start, d.end))}
                                         height={d.name === 'intercept' ? 5 : Math.abs(waterfallY(d.start) - waterfallY(d.end))}
                                         width={waterfallX.bandwidth()}
@@ -139,12 +139,12 @@ export class WaterfallChart extends React.Component<WaterfallChartProps> {
                             transform={`translate(0,${waterfallHeight})`}
                             ref={g => select(g)
                                 .call(waterfallXAxis)
-                                .selectAll("text")
-                                .attr("y", 0)
-                                .attr("x", 9)
-                                .attr("dy", "1em")
-                                .attr("transform", "rotate(45)")
-                                .style("text-anchor", "start")
+                                .selectAll('text')
+                                .attr('y', 0)
+                                .attr('x', 9)
+                                .attr('dy', '1em')
+                                .attr('transform', 'rotate(45)')
+                                .style('text-anchor', 'start')
                                 .style('font-size', '12px')}
                         />
 
@@ -160,7 +160,7 @@ export class WaterfallChart extends React.Component<WaterfallChartProps> {
                                     y={waterfallY(Math.max(hoverData.start, hoverData.end)) - 60}
                                     lines={[
                                         `${hoverData.name}: ${hoverData.X}`,
-                                        `Contrib: ${formatComma(hoverData.pdep)}`
+                                        `Contrib: ${formatComma(hoverData.pdep)}`,
                                     ]}
                                 />
                                 : null

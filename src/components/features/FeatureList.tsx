@@ -19,7 +19,7 @@ import { getStylist } from '../../utils/stylist';
 const { styleDiv } = getStylist('FeatureArea');
 
 const Container = styleDiv('Container', {
-    flex: 1
+    flex: 1,
 });
 
 export interface FeatureListProps {

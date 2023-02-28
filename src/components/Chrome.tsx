@@ -11,7 +11,7 @@ import { getStylist } from '../utils/stylist';
 const { styleComponent, styleDiv, styleMain } = getStylist('Chrome');
 
 const STypography = styleComponent(Typography)('STypography', {
-    flexGrow: 1
+    flexGrow: 1,
 });
 
 const Container = styleDiv('Container', {
@@ -19,7 +19,7 @@ const Container = styleDiv('Container', {
     flexDirection: 'column',
     height: '100vh',
     position: 'relative',
-    overflow: 'hidden'
+    overflow: 'hidden',
 });
 
 const Content = styleMain('Content', {
@@ -27,20 +27,20 @@ const Content = styleMain('Content', {
     display: 'flex',
     height: '100%',
     padding: '0px',
-    position: 'relative'
+    position: 'relative',
 });
 
 const Header = styleComponent(AppBar)('Header', {
     flex: '0 0 auto',
     padding: '0 14px',
-    fontSize: '12px'
+    fontSize: '12px',
 });
 
 
 @observer
 export class Chrome extends React.Component {
     public render() {
-        const formatComma = format(",.2f");
+        const formatComma = format(',.2f');
         return (
             <Container>
                 <Header position="static">

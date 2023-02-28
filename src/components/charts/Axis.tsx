@@ -14,8 +14,8 @@ const getContainerClassName = (color: string) =>
         $nest: {
             '& path': { stroke: color },
             '& line': { stroke: color },
-            '& text': { fill: color }
-        }
+            '& text': { fill: color },
+        },
     });
 
 export interface IAxisProps {

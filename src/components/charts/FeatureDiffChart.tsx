@@ -15,7 +15,7 @@ const { styleDiv } = getStylist('SummaryArea');
 const Container = styleDiv('Container', {
     display: 'flex',
     flexDirection: 'column',
-    position: 'relative'
+    position: 'relative',
 });
 
 interface FeatureDiffChartProps {
@@ -69,7 +69,7 @@ export class FeatureDiffChart extends React.Component<FeatureDiffChartProps> {
                 X: 0,
                 pdep: 0,
                 confi_u_X: 0,
-                confi_l_X: 0
+                confi_l_X: 0,
             });
             return featureDiffData;
         }
@@ -77,7 +77,7 @@ export class FeatureDiffChart extends React.Component<FeatureDiffChartProps> {
         const featureDiffData = makefeatureDiffData(data);
 
         featureDiffX.domain(featureDiffData.map(d => d.name));
-        let featureDiffExtent: [number, number] = extent(featureDiffData, d => d.end);
+        const featureDiffExtent: [number, number] = extent(featureDiffData, d => d.end);
         featureDiffY.domain([min([0, featureDiffExtent[0]]), max([0, featureDiffExtent[1]])]);
         const formatComma = format(',.2f');
 
@@ -105,7 +105,7 @@ export class FeatureDiffChart extends React.Component<FeatureDiffChartProps> {
                                 transform={`translate(${featureDiffX(d.name)},0)`}>
                                 <rect
                                     className={`featureDiff-bar-rect bar bar--${d.pdep < 0 ? 'negative' : 'positive'} ${d.name === appStore.hoverFeature ? 'hover' : ''
-                                        }`}
+                                    }`}
                                     y={featureDiffY(Math.max(d.start, d.end))}
                                     height={
                                         d.name === 'intercept'

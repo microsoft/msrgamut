@@ -16,7 +16,7 @@ const Container = styleDiv('Container', {
     flexDirection: 'column',
     height: '100%',
     position: 'relative',
-    overflow: 'hidden'
+    overflow: 'hidden',
 });
 
 export interface IGroupSummaryProps {

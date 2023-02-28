@@ -20,7 +20,7 @@ import { getStylist } from '../../utils/stylist';
 const { styleDiv } = getStylist('FeatureArea');
 
 const Container = styleDiv('Container', {
-    flex: 0
+    flex: 0,
 });
 
 @observer

@@ -58,36 +58,36 @@ export class InstanceTable extends React.Component<IInstanceTableProps> {
 
         const columnDefs: ColDef[] = [
             { headerName: 'ID', field: 'id', sortable: true },
-            { headerName: 'Actual', field: 'y', cellRenderer: colorCellRenderer, type: "numericColumn", valueFormatter: numFormatter, ...common },
-            { headerName: 'Predicted', field: 'prediction', cellRenderer: colorCellRenderer, type: "numericColumn", valueFormatter: numFormatter, ...common },
+            { headerName: 'Actual', field: 'y', cellRenderer: colorCellRenderer, type: 'numericColumn', valueFormatter: numFormatter, ...common },
+            { headerName: 'Predicted', field: 'prediction', cellRenderer: colorCellRenderer, type: 'numericColumn', valueFormatter: numFormatter, ...common },
             {
-                headerName: 'Difference', type: "numericColumn",
+                headerName: 'Difference', type: 'numericColumn',
                 valueGetter: (params: ValueGetterParams) => Math.abs(params.data.y - params.data.prediction),
                 valueFormatter: numFormatter,
-                ...common
+                ...common,
             },
             ...appStore.model.features
                 .filter(f => f.name !== 'intercept')
                 .map<ColDef>(f =>
-                ({
-                    headerName: f.name, field: f.name,
-                    filter: f.valueType === FeatureType.Numerical ? "agNumberColumnFilter" : "agTextColumnFilter",
-                    type: f.valueType === FeatureType.Numerical ? "numericColumn" : undefined,
-                    ...common
-                }))
+                    ({
+                        headerName: f.name, field: f.name,
+                        filter: f.valueType === FeatureType.Numerical ? 'agNumberColumnFilter' : 'agTextColumnFilter',
+                        type: f.valueType === FeatureType.Numerical ? 'numericColumn' : undefined,
+                        ...common,
+                    })),
         ];
 
         const defaultColDef = {
             width: 100,
             filter: 'agNumberColumnFilter',
-        }
+        };
         return (
             <div className="instance-table-area">
                 <div className="instance-table-options" key="options">
                     <span className="table-showing-count">
                         Showing <span id="table-selection-count">{this.numDisplayed}</span> of <span id="num-of-instances">{this.props.instances.length}</span>
                     </span>
-                    <span style={{ paddingLeft: "20px" }}>
+                    <span style={{ paddingLeft: '20px' }}>
                         <Button size="small" variant="outlined"
                             onClick={_ => { if (this.api) { this.api.setFilterModel(null); } }}
                         >
@@ -158,7 +158,7 @@ window.addEventListener('message', e => {
                     const data = currentTableData.map(d => {
                         return {
                             ...d,
-                            Difference: Math.abs(d.y - d.prediction)
+                            Difference: Math.abs(d.y - d.prediction),
                         };
                     });
                     const message = {
@@ -168,10 +168,10 @@ window.addEventListener('message', e => {
                             columns: {
                                 color: 'Difference',
                                 x: 'prediction',
-                                y: 'y'
+                                y: 'y',
                             },
-                            scheme: 'redblue'
-                        }
+                            scheme: 'redblue',
+                        },
                     };
                     (e.source as Window).postMessage(message, '*');
                     break;

@@ -70,7 +70,7 @@ const watchByPolyfill = (element: Element, callback: Callback) => {
     };
 
     return {
-        unobserve: () => element.removeChild(frame)
+        unobserve: () => element.removeChild(frame),
     };
 };
 
@@ -83,7 +83,7 @@ const watchByObserver = (element: Element, callback: Callback) => {
     ro.observe(element);
 
     return {
-        unobserve: () => ro.unobserve(element)
+        unobserve: () => ro.unobserve(element),
     };
 };
 

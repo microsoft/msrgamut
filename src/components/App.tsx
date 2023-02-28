@@ -3,9 +3,9 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { observer } from 'mobx-react';
 import * as React from 'react';
 import { appStore } from '../stores/appStore';
-import { Chrome } from "./Chrome";
-import { Content } from "./Content";
-import { FeatureArea } from "./features/FeaturesArea";
+import { Chrome } from './Chrome';
+import { Content } from './Content';
+import { FeatureArea } from './features/FeaturesArea';
 
 const theme = createTheme({
     typography: {
@@ -27,7 +27,7 @@ export class App extends React.Component {
                         appStore.ready ?
                             [
                                 <FeatureArea key="fa" model={model} />,
-                                <Content key="c" model={model} />
+                                <Content key="c" model={model} />,
                             ] :
                             <div className="loading">Loading {appStore.datasetName}...</div>
                     }

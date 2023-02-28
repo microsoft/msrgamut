@@ -25,11 +25,11 @@ const Container = styleDiv('Container', {
     height: '100%',
     position: 'relative',
     overflowY: 'auto',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
 });
 
 const ChartContainer = styleDiv('ChartContainer', {
-    margin: 8
+    margin: 8,
 });
 
 
@@ -38,7 +38,7 @@ const fredData = true;
 const { styleComponent } = getStylist('FeatureChart');
 
 const DenseCardContent = styleComponent(CardContent)('DenseCardContent', {
-    padding: 0
+    padding: 0,
 });
 
 export interface ChartAreaProps {
@@ -58,15 +58,15 @@ export class ChartArea extends React.Component<ChartAreaProps> {
         reaction(
             () => appStore.focusedFeature,
             (val, _) => {
-                let myref = this.cardrefs[val];
+                const myref = this.cardrefs[val];
                 // should abstract this out into a function, but for now, do the calculations here:
-                let element: HTMLElement = ReactDOM.findDOMNode(myref) as HTMLElement;
-                let topPos: number = element.offsetTop;
-                let parentElement: HTMLElement = element.parentElement;
+                const element: HTMLElement = ReactDOM.findDOMNode(myref) as HTMLElement;
+                const topPos: number = element.offsetTop;
+                const parentElement: HTMLElement = element.parentElement;
                 parentElement.scrollTop = topPos;
 
                 //console.log("updateded focused feature to " + val + "reaction" + reaction)
-            }
+            },
         );
         if (fredData) {
             const model = appStore.model;
