@@ -9,7 +9,7 @@
         "build": "parcel build src/index.html --no-optimize --dist-dir site",
         "start": "parcel src/index-local.html --open",
         "remove-pem": "rimraf **/*.pem && rimraf **/*.key",
-        "eslint": "eslint -c . --fix"
+        "eslint": "eslint -c eslintrc.json --fix ./src/**/*.ts*"
     },
     "alias": {
         "react": "./alias/react-external.js",
@@ -58,6 +58,7 @@
         "@typescript-eslint/parser": "^5.54.0",
         "buffer": "^5.7.1",
         "eslint": "^8.35.0",
+        "eslint-plugin-react": "^7.32.2",
         "less": "^4.1.3",
         "parcel": "^2.8.3",
         "process": "^0.11.10",
