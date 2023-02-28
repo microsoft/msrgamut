@@ -9,7 +9,7 @@
         "build": "parcel build src/index.html --no-optimize --dist-dir site",
         "start": "parcel src/index-local.html --open",
         "remove-pem": "rimraf **/*.pem && rimraf **/*.key",
-        "tslint": "tslint -p . --fix"
+        "eslint": "eslint -c . --fix"
     },
     "alias": {
         "react": "./alias/react-external.js",
@@ -54,12 +54,14 @@
         "@types/react-dom": "^16.9.18",
         "@types/react-split-pane": "^0.1.67",
         "@types/warning": "^3.0.0",
+        "@typescript-eslint/eslint-plugin": "^5.54.0",
+        "@typescript-eslint/parser": "^5.54.0",
         "buffer": "^5.7.1",
+        "eslint": "^8.35.0",
         "less": "^4.1.3",
         "parcel": "^2.8.3",
         "process": "^0.11.10",
         "rimraf": "^3.0.2",
-        "tslint": "^6.1.3",
         "typescript": "^4.9.5"
     }
 }
