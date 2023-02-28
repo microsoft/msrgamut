@@ -5,8 +5,8 @@
     "scripts": {
         "manifest": "node ./scripts/manifest.js",
         "compile": "tsc -p .",
-        "prebuild": "rimraf site/index*.*",
-        "build": "parcel build src/index.html --no-optimize --dist-dir site",
+        "prebuild": "rimraf docs/index*.*",
+        "build": "parcel build src/index.html --no-optimize --dist-dir docs",
         "start": "parcel src/index-local.html --open",
         "remove-pem": "rimraf **/*.pem && rimraf **/*.key",
         "eslint": "eslint -c eslintrc.json --fix ./src/**/*.ts*"

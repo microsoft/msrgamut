@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const dataDir = path.join(__dirname, '../site/data');
+const dataDir = path.join(__dirname, '../docs/data');
 
 fs.readdir(dataDir, (err, files) => {
     if (err) {
@@ -55,7 +55,7 @@ fs.readdir(dataDir, (err, files) => {
             for (let key in dataset) {
                 let val = dataset[key];
                 if (val.indexOf('.json') > 0) {
-                    anchors.push(`<a class="gamut-app-content-bundled" id="${val.replace(/\/|\./g, '_')}" href="../site/data/${val}"></a>`);
+                    anchors.push(`<a class="gamut-app-content-bundled" id="${val.replace(/\/|\./g, '_')}" href="../docs/data/${val}"></a>`);
                 }
             }
         });
