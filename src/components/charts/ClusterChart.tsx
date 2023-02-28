@@ -13,7 +13,7 @@ const Container = styleDiv('Container', {
     display: 'flex',
     flexDirection: 'column',
     position: 'relative',
-    overflow: 'hidden'
+    overflow: 'hidden',
 });
 
 export interface ClusterChartProps {
@@ -62,8 +62,8 @@ export class ClusterChart extends React.Component<ClusterChartProps> {
         drColorBarHeight = drColorBarHeight - drColorBarMargin.top - drColorBarMargin.bottom;
 
         function linspace(start: number, end: number, n: number) {
-            let out = [];
-            let delta = (end - start) / (n - 1);
+            const out = [];
+            const delta = (end - start) / (n - 1);
 
             let i = 0;
             while (i < (n - 1)) {

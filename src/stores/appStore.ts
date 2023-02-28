@@ -96,7 +96,7 @@ export class Model {
     constructor(
         gamJson: IGamJson,
         instanceData: InstanceData[],
-        descriptions?: IDescriptions
+        descriptions?: IDescriptions,
     ) {
         this.gam = gamJson;
         const isGaam = this.gam.name.indexOf('gaam') >= 0;
@@ -132,7 +132,7 @@ export class Model {
             const row: any = {
                 id: inst.id,
                 y: inst.y,
-                prediction: this.getPrediction(inst)
+                prediction: this.getPrediction(inst),
             };
             inst.data.forEach(d => row[d.name] = d.X);
             return row;
@@ -160,7 +160,7 @@ export class Model {
             instance.data.map(data => {
                 const stats = this.instanceStats[data.name];
                 if (!stats) return 0; // WHY DOES THIS HAPPEN? :angry:
-                return (data.X - stats.mean) / stats.max
+                return (data.X - stats.mean) / stats.max;
             });
 
         const pdep = (instance: InstanceData) =>
@@ -200,8 +200,8 @@ export class Model {
             this.instanceStats[features[f].name] = {
                 max: d3max(instances, d => d.data[f].X),
                 min: d3min(instances, d => d.data[f].X),
-                mean: d3mean(instances, d => d.data[f].X)
-            }
+                mean: d3mean(instances, d => d.data[f].X),
+            };
         }
     }
 
@@ -268,7 +268,7 @@ export class AppStore {
     }
 
     public toggleAllFeatureVisbility(onOff: boolean) {
-        for (let fname in this.featureVisible) {
+        for (const fname in this.featureVisible) {
             this.featureVisible[fname] = onOff;
         }
     }
@@ -361,7 +361,7 @@ export class AppStore {
 
 function zip<T>(vec1: T[], vec2: T[]): [T, T][] { return vec1.map((x, i) => [x, vec2[i]] as [T, T]); }
 
-function dataFrom<T>(resp: AxiosResponse<T>) { return resp ? resp.data : undefined };
+function dataFrom<T>(resp: AxiosResponse<T>) { return resp ? resp.data : undefined; }
 
 export const appStore = new AppStore();
 
@@ -375,7 +375,7 @@ if (location.search.substring(1) === 'embed') {
         }
     });
 } else {
-    const dataDirAnchor = (document.querySelector<HTMLAnchorElement>(`a.gamut-app-content#datadir`) as HTMLAnchorElement);
+    const dataDirAnchor = (document.querySelector<HTMLAnchorElement>('a.gamut-app-content#datadir') as HTMLAnchorElement);
     const dataDir = dataDirAnchor ? dataDirAnchor.href : '';
     const manifestAnchor = document.querySelector<HTMLAnchorElement>('a.gamut-app-content-bundled#manifest') as HTMLAnchorElement;
     const manifestUrl = manifestAnchor ? manifestAnchor.href : `${dataDir}_manifest.json`;

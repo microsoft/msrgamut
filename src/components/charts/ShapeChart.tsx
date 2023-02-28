@@ -18,7 +18,7 @@ import {
     LinearScale,
     PiecewiseConstant,
     PiecewiseLinear,
-    ShapePoint
+    ShapePoint,
 } from '../../stores';
 import { appStore, InstanceData, InstanceFieldData } from '../../stores/appStore';
 import { SvgTooltip } from '../common/svgtooltip';
@@ -55,7 +55,7 @@ function fixupStepCurve(path: string): string {
     // const x = 2 * parseInt(match[5]) - parseInt(match[1]);
 
     const match = /([-+]?[0-9]*\.?[0-9]+),([-+]?[0-9]*\.?[0-9]+)L([-+]?[0-9]*\.?[0-9]+),([-+]?[0-9]*\.?[0-9]+)L([-+]?[0-9]*\.?[0-9]+),([-+]?[0-9]*\.?[0-9]+)$/.exec(
-        path
+        path,
     );
     const x = 2 * parseInt(match[5]) - parseInt(match[1]);
     return path + `L${x},${match[6]}`;
@@ -72,9 +72,9 @@ export class ShapeChart extends React.Component<ShapeChartProps> {
 
     @action
     public mouseMove(e: React.MouseEvent, feature: Feature, x: LinearScale | BandScale, y: LinearScale): void {
-        let margin = { top: 0, right: 20, bottom: 0, left: 60 };
-        var myContainer: ContainerElement = e.currentTarget as SVGSVGElement;
-        var mouseX = clientPoint(myContainer, e)[0] - margin.left;
+        const margin = { top: 0, right: 20, bottom: 0, left: 60 };
+        const myContainer: ContainerElement = e.currentTarget as SVGSVGElement;
+        const mouseX = clientPoint(myContainer, e)[0] - margin.left;
 
         this.crosshairDomain =
             feature.valueType === 'numerical' ? (x as LinearScale).invert(mouseX) : invertBand(x as BandScale, mouseX);
@@ -111,9 +111,9 @@ export class ShapeChart extends React.Component<ShapeChartProps> {
         const { feature } = this.props;
         if (!feature || !feature.shape) return null;
 
-        let chartWidth = 300;
+        const chartWidth = 300;
         let chartHeight = 150;
-        let margin = { top: 0, right: 20, bottom: 0, left: 60 };
+        const margin = { top: 0, right: 20, bottom: 0, left: 60 };
 
         const width = chartWidth - margin.left - margin.right;
         const height = chartHeight - margin.top - margin.bottom;
@@ -126,10 +126,10 @@ export class ShapeChart extends React.Component<ShapeChartProps> {
             .domain([yScale.min, yScale.max]);
 
         const instance = appStore.selectedInstance;
-        let instanceFeatureData = instance ? instance.data.find(field => field.name === feature.name) : undefined;
+        const instanceFeatureData = instance ? instance.data.find(field => field.name === feature.name) : undefined;
 
         const instance2 = appStore.selectedInstance2;
-        let instance2FeatureData = instance2 ? instance2.data.find(field => field.name === feature.name) : undefined;
+        const instance2FeatureData = instance2 ? instance2.data.find(field => field.name === feature.name) : undefined;
 
         let histogram: JSX.Element = null;
         const shape = feature.shape;
@@ -139,13 +139,13 @@ export class ShapeChart extends React.Component<ShapeChartProps> {
                     ? this.renderNumericalHistogram(
                         appStore.model.instances.map(i => i[feature.name]),
                         chartWidth,
-                        height
+                        height,
                     )
                     : shape instanceof PiecewiseLinear
                         ? this.renderNumericalHistogram(
                             shape.pdep.map(p => p.x),
                             chartWidth,
-                            height
+                            height,
                         )
                         : shape instanceof CategoricalShape
                             ? // this.renderCategoricalHistogram(shape.histogram, chartWidth, height) :
@@ -157,15 +157,15 @@ export class ShapeChart extends React.Component<ShapeChartProps> {
         }
 
         const curve = !shape.isPiecewiseConstant ? curveLinear : curveStepAfter;
-        let pdepLine = line<ShapePoint>()
+        const pdepLine = line<ShapePoint>()
             .x(d => x(d.x))
             .y(d => y(d.y))
             .curve(curve);
-        let confiULine = line<ShapePoint>()
+        const confiULine = line<ShapePoint>()
             .x(d => x(d.x))
             .y(d => y(d.y))
             .curve(curve);
-        let confiLLine = line<ShapePoint>()
+        const confiLLine = line<ShapePoint>()
             .x(d => x(d.x))
             .y(d => y(d.y))
             .curve(curve);
@@ -222,7 +222,7 @@ export class ShapeChart extends React.Component<ShapeChartProps> {
                             'square',
                             this.showTooltip2,
                             x,
-                            y
+                            y,
                         )
                         : null}
                     {instanceFeatureData
@@ -233,7 +233,7 @@ export class ShapeChart extends React.Component<ShapeChartProps> {
                             'circle',
                             this.showTooltip1,
                             x,
-                            y
+                            y,
                         )
                         : null}
                 </g>
@@ -281,7 +281,7 @@ export class ShapeChart extends React.Component<ShapeChartProps> {
     }
 
     private renderNumericalHistogram(xs: number[], chartWidth: number, height: number) {
-        let histWidth = chartWidth;
+        const histWidth = chartWidth;
         const histMargin = { top: 0, right: 20, bottom: 0, left: 60 };
         const histWidthInside = histWidth - histMargin.left - histMargin.right;
         const histHeightInside = HISTOGRAM_HEIGHT - histMargin.top - histMargin.bottom;
@@ -290,7 +290,7 @@ export class ShapeChart extends React.Component<ShapeChartProps> {
             .rangeRound([0, histWidthInside])
             .domain(extent(xs));
 
-        let bins = histogram()
+        const bins = histogram()
             .domain(histx.domain() as [number, number])
             .thresholds(20)(xs);
 
@@ -315,7 +315,7 @@ export class ShapeChart extends React.Component<ShapeChartProps> {
     }
 
     private renderCategoricalHistogram(valCounts: { [key: string]: number }, chartWidth: number, height: number) {
-        let histWidth = chartWidth;
+        const histWidth = chartWidth;
         const histMargin = { top: 0, right: 20, bottom: 0, left: 60 };
         const histWidthInside = histWidth - histMargin.left - histMargin.right;
         const histHeightInside = HISTOGRAM_HEIGHT - histMargin.top - histMargin.bottom;
@@ -360,7 +360,7 @@ export class ShapeChart extends React.Component<ShapeChartProps> {
         shape: 'circle' | 'square',
         showTooltip: boolean,
         x: Scale,
-        y: Scale
+        y: Scale,
     ): React.ReactNode {
         const adjust = x.bandwidth ? 0.5 * x.bandwidth() : 0;
         return [
@@ -405,7 +405,7 @@ export class ShapeChart extends React.Component<ShapeChartProps> {
                     y={y(datum.pdep) - 70}
                     lines={[`Instance: ${id}`, `X: ${datum.X + adjust}`, `pdep: ${datum.pdep.toFixed(2)}`]}
                 />
-            ) : null
+            ) : null,
         ];
     }
 }

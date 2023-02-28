@@ -25,12 +25,12 @@ const SliceRect = styleRect<{ selected: boolean }>(
                 cursor: 'pointer',
                 $nest: {
                     '&:hover': {
-                        stroke: `red`,
-                        strokeWidth: 2
-                    }
-                }
+                        stroke: 'red',
+                        strokeWidth: 2,
+                    },
+                },
             }
-            : null
+            : null,
 );
 
 const chartPadding = { top: 10, right: 20, bottom: 20, left: 40 };

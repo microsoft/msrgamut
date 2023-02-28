@@ -30,7 +30,7 @@ export class Content extends React.Component<ContentProps> {
         const actualExtent = extent(instances, d => d.y);
         const predictionExtent = extent(instances, d => +model.getPrediction(d));
         const colorDRPrediction = scaleSequential(interpolateCool)
-            .domain([min([actualExtent[0], predictionExtent[0]]), max([actualExtent[1], predictionExtent[1]])])
+            .domain([min([actualExtent[0], predictionExtent[0]]), max([actualExtent[1], predictionExtent[1]])]);
 
         return (
             <SplitPane split="vertical" defaultSize="50%" pane2Style={{ overflow: 'auto' }}  >
@@ -74,8 +74,8 @@ class CollapserProps {
     sizeVariable: SizeVariable;
 }
 
-const COLLAPSED = "97%";
-const EXPANDED = "50%";
+const COLLAPSED = '97%';
+const EXPANDED = '50%';
 
 @observer
 class SplitPaneCollapser extends React.Component<CollapserProps> {
@@ -87,7 +87,7 @@ class SplitPaneCollapser extends React.Component<CollapserProps> {
                     <IconButton onClick={_ => { this.props.sizeVariable.size = EXPANDED; }} title="Expand" ><ExpandLess fontSize="small" /></IconButton> :
                     <IconButton onClick={_ => { this.props.sizeVariable.size = COLLAPSED; }} title="Collapse" ><ExpandMore fontSize="small" /></IconButton>}
             </div>,
-            collapsed ? null : this.props.children
+            collapsed ? null : this.props.children,
         ];
     }
 }

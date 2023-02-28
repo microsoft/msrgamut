@@ -31,7 +31,7 @@ export class ClusterArea extends React.Component<ClusterAreaProps> {
             case 'label': fillFunc = d => colorDRPrediction(d.y); break;
             case 'prediction': fillFunc = d => colorDRPrediction(model.getPrediction(d)); break;
             case 'difference': fillFunc = d => colorDRPrediction(d.y - model.getPrediction(d)); break;
-            case 'neighbors': fillFunc = d => isNeighbor(d.id) ? colorDRPrediction(d.y) : "#cccccc";
+            case 'neighbors': fillFunc = d => isNeighbor(d.id) ? colorDRPrediction(d.y) : '#cccccc';
         }
 
         return (
@@ -81,15 +81,15 @@ export class ClusterArea extends React.Component<ClusterAreaProps> {
                             <span className="select-bar select-bar-dr"></span>
                             <label className="select-label">Color by</label>
                         </div>
-                        <div style={{ display: "flex" }}>
-                            <div style={{ flex: 1, paddingRight: "20px" }}>
+                        <div style={{ display: 'flex' }}>
+                            <div style={{ flex: 1, paddingRight: '20px' }}>
                                 <button className="dr-home" onClick={_ => { this.pointSize = DEFAULT_POINT_SIZE; }}>
                                     <MyLocationIcon />
                                 </button>
                             </div>
-                            <div style={{ flex: 5, display: "flex", flexDirection: "column", justifyContent: "center" }}>
+                            <div style={{ flex: 5, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                                 <input type="range" min="0.5" max="10" step="0.1" value={this.pointSize} className="slider" id="dr-point-size-slider"
-                                    onChange={e => { this.pointSize = e.target.valueAsNumber }} />
+                                    onChange={e => { this.pointSize = e.target.valueAsNumber; }} />
                             </div>
                         </div>
                     </div>

@@ -17,7 +17,7 @@ const Container = styleDiv('Container', {
     flexDirection: 'column',
     height: '100%',
     position: 'relative',
-    overflowY: 'auto'
+    overflowY: 'auto',
 });
 
 export interface FeatureAreaProps {

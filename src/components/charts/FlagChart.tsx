@@ -13,7 +13,7 @@ const Container = styleDiv('Container', {
     display: 'flex',
     flexDirection: 'column',
     position: 'relative',
-    overflow: 'hidden'
+    overflow: 'hidden',
 });
 
 interface FlagChartProps {
@@ -36,12 +36,12 @@ export class FlagChart extends React.Component<FlagChartProps> {
             .rangeRound([0, flagHeight])
             .padding(0.1);
 
-        const flagXAxis = axisBottom(flagX).ticks(5)
+        const flagXAxis = axisBottom(flagX).ticks(5);
         const flagYAxis = axisLeft(flagY).tickSize(0).tickPadding(6);
 
         const data = this.props.data;
-        const pdepExtent: [number, number] = extent(data, d => d.pdep)
-        const maxPdep = Math.max.apply(null, pdepExtent.map(Math.abs))
+        const pdepExtent: [number, number] = extent(data, d => d.pdep);
+        const maxPdep = Math.max.apply(null, pdepExtent.map(Math.abs));
 
         flagX.domain([-1 * maxPdep, maxPdep]).nice();
         flagY.domain(data.map(d => d.name));
@@ -54,7 +54,7 @@ export class FlagChart extends React.Component<FlagChartProps> {
                         {
                             data.map(d =>
                                 <rect key={d.name}
-                                    className={`flag bar bar--${d.pdep < 0 ? "negative" : "positive"}`}
+                                    className={`flag bar bar--${d.pdep < 0 ? 'negative' : 'positive'}`}
                                     x={flagX(Math.min(0, d.pdep))}
                                     y={flagY(d.name)}
                                     width={Math.abs(flagX(d.pdep) - flagX(0))}

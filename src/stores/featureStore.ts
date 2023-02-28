@@ -5,7 +5,7 @@ import { IShapeData } from './appStore';
 export const enum FeatureType {
     Numerical = 'numerical',
     Categorical = 'categorical',
-    Unused = 'unused'
+    Unused = 'unused',
 }
 
 export interface IItem {
@@ -181,7 +181,7 @@ export class Feature implements IFeature {
         public name: string,
         public description: string | undefined,
         public shape: FeatureShape,
-        public valueType: FeatureType
+        public valueType: FeatureType,
     ) {
         const ys = shape.pdep
             .map(d => d.y)
