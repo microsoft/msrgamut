@@ -17,7 +17,7 @@ import {
     LinearScale,
     PiecewiseConstant,
     PiecewiseLinear,
-    ShapePoint
+    ShapePoint,
 } from '../../stores';
 import { appStore, InstanceData, InstanceFieldData } from '../../stores/appStore';
 import { SvgTooltip } from '../common/svgtooltip';
