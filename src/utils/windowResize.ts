@@ -86,5 +86,4 @@ const watchByObserver = (element: Element, callback: Callback) => {
     };
 };
 
-// tslint:disable-next-line:no-any
 export const watchResize = (<any>window).ResizeObserver ? watchByObserver : watchByPolyfill;

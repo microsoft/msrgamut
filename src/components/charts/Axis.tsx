@@ -18,7 +18,6 @@ const getContainerClassName = (color: string) =>
     });
 
 export interface IAxisProps {
-    // tslint:disable-next-line:no-any
     axis: d3Axis<any>;
     translateX?: number;
     translateY?: number;
