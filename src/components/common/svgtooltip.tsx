@@ -1,7 +1,9 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 import { observable } from 'mobx';
 import { observer } from 'mobx-react';
-import React = require('react');
-
+import * as React from 'react';
 
 export interface SvgTooltipProps {
     x: number;

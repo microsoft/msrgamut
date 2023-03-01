@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 export function endsWith(val: string | number, searchString: string): boolean {
     return new RegExp(`${searchString}$`).test(`${val}`);
 }

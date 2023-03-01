@@ -1,6 +1,5 @@
-/**
- * Copyright (c) Microsoft. All rights reserved.
- */
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
 
 import IconButton from '@material-ui/core/IconButton';
 import List from '@material-ui/core/List';
@@ -13,7 +12,6 @@ import VisibilityOffIcon from '@material-ui/icons/VisibilityOff';
 import { observer } from 'mobx-react';
 import * as React from 'react';
 import { appStore, Model } from '../../stores/appStore';
-// import { appStore } from '../../stores/store';
 import { getStylist } from '../../utils/stylist';
 
 const { styleDiv } = getStylist('FeatureArea');

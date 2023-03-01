@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 import axios, { AxiosResponse } from 'axios';
 import { ascending, descending, max as d3max, mean as d3mean, min as d3min } from 'd3-array';
 import { action, computed, observable, runInAction } from 'mobx';

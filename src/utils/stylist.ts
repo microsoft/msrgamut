@@ -1,6 +1,5 @@
-/**
- * Copyright (c) Microsoft. All rights reserved.
- */
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
 
 import { observer } from 'mobx-react';
 import * as React from 'react';
@@ -32,13 +31,10 @@ const animationNameFactory = () => (timeline: KeyFrames): string => {
     return keyframes(timeline);
 };
 
-// tslint:disable-next-line:no-any
 const getStaticCssArrayCopy = (Component: any): StaticCss[] => (Component[staticCssField] || []).slice();
 
-// tslint:disable-next-line:no-any
 const getDynamicCssArrayCopy = (Component: any): DynamicCss<{}>[] => (Component[dynamicCssField] || []).slice();
 
-// tslint:disable-next-line:no-any
 const isStyledComponent = (Component: any) => !!Component[dynamicCssField];
 
 const styledComponentFactory = (getClassName: GetClassName) => <TProps extends { className?: string }>(
@@ -63,7 +59,6 @@ const styledComponentFactory = (getClassName: GetClassName) => <TProps extends {
         public static [dynamicCssField] = dynamicCssArray;
 
         public render() {
-            // tslint:disable-next-line:no-any
             const { customProps = <TCustomProps>{}, ...props } = <any>this.props;
 
             const cssSet = props[cssSetFlag];

@@ -1,6 +1,5 @@
-/**
- * Copyright (c) Microsoft. All rights reserved.
- */
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
 
 import { extent, histogram, max } from 'd3-array';
 import { axisBottom, axisLeft } from 'd3-axis';

@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 type DebounceOptions = Partial<{
     wait: number;
     immediate: boolean;
@@ -7,7 +10,6 @@ const debounceFunc = <T extends Function>(func: T, options?: DebounceOptions, th
     const { wait = 250, immediate = false } = options || <DebounceOptions>{};
     let timer: number = null;
 
-    // tslint:disable-next-line:no-function-expression
     const newFunc: Function = function (...args: any[]) {
         const invokeNow = immediate && timer === null;
 

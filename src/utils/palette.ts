@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 import { interpolateHcl } from 'd3-interpolate';
 import { scaleLinear } from 'd3-scale';
 

@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 import { extent, max as d3max, min as d3min } from 'd3-array';
 import { scaleBand, ScaleBand, ScaleLinear, scaleLinear } from 'd3-scale';
 import { IShapeData } from './appStore';

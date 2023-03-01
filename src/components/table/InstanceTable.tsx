@@ -1,6 +1,5 @@
-/**
- * Copyright (c) Microsoft. All rights reserved.
- */
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
 
 import { Button } from '@material-ui/core';
 import { ColDef, GridApi, ICellRendererFunc, ValueGetterParams } from 'ag-grid-community';

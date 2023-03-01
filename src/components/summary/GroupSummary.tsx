@@ -1,6 +1,5 @@
-/**
- * Copyright (c) Microsoft. All rights reserved.
- */
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
 
 import List from '@material-ui/core/List';
 import ListSubheader from '@material-ui/core/ListSubheader';
