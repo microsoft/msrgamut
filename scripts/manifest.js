@@ -46,7 +46,7 @@ fs.readdir(dataDir, (err, files) => {
                     }
             });
         const output = { default: 'income', datasets: datasets };
-        const fileName = path.join(dataDir, '_manifest.json');
+        const fileName = path.join(dataDir, '-manifest.json');
         fs.writeFileSync(fileName, JSON.stringify(output, null, 2));
         console.log(`created ${fileName}`);
 
