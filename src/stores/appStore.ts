@@ -378,6 +378,6 @@ if (location.search.substring(1) === 'embed') {
     const dataDirAnchor = (document.querySelector<HTMLAnchorElement>('a.gamut-app-content#datadir') as HTMLAnchorElement);
     const dataDir = dataDirAnchor ? dataDirAnchor.href : '';
     const manifestAnchor = document.querySelector<HTMLAnchorElement>('a.gamut-app-content-bundled#manifest') as HTMLAnchorElement;
-    const manifestUrl = manifestAnchor ? manifestAnchor.href : `${dataDir}_manifest.json`;
+    const manifestUrl = manifestAnchor ? manifestAnchor.href : `${dataDir}-manifest.json`;
     appStore.loadManifest(manifestUrl, dataDir);
 }
