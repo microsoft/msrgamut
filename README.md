@@ -4,9 +4,12 @@ Demo the prototype [here](https://microsoft.github.io/msrgamut)
 
 See the abstract for this project [here](https://www.microsoft.com/en-us/research/project/msrgamut/)
 
-This code is based on react, d3, mobx, and typescript. It creates an interactive viewer of the system.
+For reference, you can view the following video:
+A paper, presented at SIGCHI 2019 in Glasgow, Scotland is available [here](https://www.microsoft.com/en-us/research/publication/gamut-a-design-probe-to-understand-howdata-scientists-understand-machine-learning-models/)
 
 ![Alt](images/gamscreenshot.PNG 'Screenshot')
+
+This code is based on react, d3, mobx, and typescript. It creates an interactive viewer of the system.
 
 ## To run
 
@@ -14,17 +17,6 @@ This code is based on react, d3, mobx, and typescript. It creates an interactive
 npm install
 npm start
 ```
-
-## Dev mode
-
-This starts a server with 'hot reloading' during development.
-
-```
-npm run dev
-```
-
-For reference, you can view the following video:
-A paper, presented at SIGCHI 2019 in Glasgow, Scotland is available [here](https://www.microsoft.com/en-us/research/publication/gamut-a-design-probe-to-understand-howdata-scientists-understand-machine-learning-models/)
 
 ## Dataset Attribution:
 
