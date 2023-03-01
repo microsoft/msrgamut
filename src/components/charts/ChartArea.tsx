@@ -1,6 +1,5 @@
-/**
- * Copyright (c) Microsoft. All rights reserved.
- */
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
 
 import { Card, CardContent, CardHeader, IconButton } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/close';
@@ -9,13 +8,11 @@ import { ScaleSequential } from 'd3-scale';
 import { reaction } from 'mobx';
 import { observer } from 'mobx-react';
 import * as React from 'react';
-//import scrollToComponent from 'react-scroll-to-component';
+import * as ReactDOM from 'react-dom';
 import { appStore } from '../../stores/appStore';
 import { FeatureType } from '../../stores/featureStore';
 import { getStylist } from '../../utils/stylist';
 import { ShapeChart } from './ShapeChart';
-import ReactDOM = require('react-dom');
-
 
 const { styleDiv } = getStylist('ChartArea');
 
@@ -31,7 +28,6 @@ const Container = styleDiv('Container', {
 const ChartContainer = styleDiv('ChartContainer', {
     margin: 8,
 });
-
 
 const fredData = true;
 
@@ -49,8 +45,6 @@ export interface ChartAreaProps {
 export class ChartArea extends React.Component<ChartAreaProps> {
     // save refs to cards for scrolling
     cardrefs: any = [];
-
-
 
     public render() {
         // const chartWidth = 400;

@@ -1,12 +1,13 @@
-import React = require('react');
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 import MyLocationIcon from '@material-ui/icons/MyLocation';
 import { ScaleSequential } from 'd3-scale';
 import { observable } from 'mobx';
 import { observer } from 'mobx-react';
+import * as React from 'react';
 import { appStore, InstanceData, Model } from '../../stores/appStore';
 import { ClusterChart } from '../charts/ClusterChart';
-
-
 
 export interface ClusterAreaProps {
     model: Model;

@@ -1,6 +1,5 @@
-/**
- * Copyright (c) Microsoft. All rights reserved.
- */
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
 
 import { Button } from '@material-ui/core';
 import { ColDef, GridApi, ICellRendererFunc, ValueGetterParams } from 'ag-grid-community';
@@ -69,12 +68,12 @@ export class InstanceTable extends React.Component<IInstanceTableProps> {
             ...appStore.model.features
                 .filter(f => f.name !== 'intercept')
                 .map<ColDef>(f =>
-                    ({
-                        headerName: f.name, field: f.name,
-                        filter: f.valueType === FeatureType.Numerical ? 'agNumberColumnFilter' : 'agTextColumnFilter',
-                        type: f.valueType === FeatureType.Numerical ? 'numericColumn' : undefined,
-                        ...common,
-                    })),
+                ({
+                    headerName: f.name, field: f.name,
+                    filter: f.valueType === FeatureType.Numerical ? 'agNumberColumnFilter' : 'agTextColumnFilter',
+                    type: f.valueType === FeatureType.Numerical ? 'numericColumn' : undefined,
+                    ...common,
+                })),
         ];
 
         const defaultColDef = {

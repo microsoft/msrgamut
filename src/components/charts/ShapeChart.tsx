@@ -1,6 +1,5 @@
-/**
- * Copyright (c) Microsoft. All rights reserved.
- */
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
 
 import { extent, histogram, max } from 'd3-array';
 import { axisBottom, axisLeft } from 'd3-axis';
@@ -18,7 +17,7 @@ import {
     LinearScale,
     PiecewiseConstant,
     PiecewiseLinear,
-    ShapePoint,
+    ShapePoint
 } from '../../stores';
 import { appStore, InstanceData, InstanceFieldData } from '../../stores/appStore';
 import { SvgTooltip } from '../common/svgtooltip';

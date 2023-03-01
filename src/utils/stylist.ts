@@ -1,6 +1,5 @@
-/**
- * Copyright (c) Microsoft. All rights reserved.
- */
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
 
 import { observer } from 'mobx-react';
 import * as React from 'react';
@@ -44,53 +43,53 @@ const isStyledComponent = (Component: any) => !!Component[dynamicCssField];
 const styledComponentFactory = (getClassName: GetClassName) => <TProps extends { className?: string }>(
     Component: StylableComponent<TProps>,
 ) => <TCustomProps>(
-        styledComponentName: string,
-        css: StaticCss,
-        getCss?: DynamicCss<StyledComponentProps<TProps, TCustomProps>>,
-    ) => {
-    const staticCssArray = getStaticCssArrayCopy(Component).concat(css);
+    styledComponentName: string,
+    css: StaticCss,
+    getCss?: DynamicCss<StyledComponentProps<TProps, TCustomProps>>,
+) => {
+        const staticCssArray = getStaticCssArrayCopy(Component).concat(css);
 
-    const dynamicCssArray = getDynamicCssArrayCopy(Component)
-        .concat(getCss)
-        .filter(fn => !!fn);
+        const dynamicCssArray = getDynamicCssArrayCopy(Component)
+            .concat(getCss)
+            .filter(fn => !!fn);
 
-    const staticCssClassName = getClassName(styledComponentName, ...staticCssArray);
+        const staticCssClassName = getClassName(styledComponentName, ...staticCssArray);
 
-    const isTargetStyledComponent = isStyledComponent(Component);
+        const isTargetStyledComponent = isStyledComponent(Component);
 
-    const StyledComponent = class extends React.Component<StyledComponentProps<TProps, TCustomProps>> {
-        public static [staticCssField] = staticCssArray;
-        public static [dynamicCssField] = dynamicCssArray;
+        const StyledComponent = class extends React.Component<StyledComponentProps<TProps, TCustomProps>> {
+            public static [staticCssField] = staticCssArray;
+            public static [dynamicCssField] = dynamicCssArray;
 
-        public render() {
-            // tslint:disable-next-line:no-any
-            const { customProps = <TCustomProps>{}, ...props } = <any>this.props;
+            public render() {
+                // tslint:disable-next-line:no-any
+                const { customProps = <TCustomProps>{}, ...props } = <any>this.props;
 
-            const cssSet = props[cssSetFlag];
-            props[cssSetFlag] = undefined;
+                const cssSet = props[cssSetFlag];
+                props[cssSetFlag] = undefined;
 
-            const classNames: string[] = [];
+                const classNames: string[] = [];
 
-            if (!cssSet) {
-                const dynamicCss = StyledComponent[dynamicCssField].map(cssFn =>
-                    cssFn({ ...props, ...{ customProps } }),
-                );
+                if (!cssSet) {
+                    const dynamicCss = StyledComponent[dynamicCssField].map(cssFn =>
+                        cssFn({ ...props, ...{ customProps } }),
+                    );
 
-                const dynamicCssClassName = getClassName(styledComponentName, ...dynamicCss);
+                    const dynamicCssClassName = getClassName(styledComponentName, ...dynamicCss);
 
-                classNames.push(staticCssClassName, dynamicCssClassName);
+                    classNames.push(staticCssClassName, dynamicCssClassName);
+                }
+
+                return React.createElement(Component, {
+                    ...props,
+                    className: joinClassNames(...classNames, this.props.className),
+                    [cssSetFlag]: isTargetStyledComponent ? true : undefined,
+                });
             }
+        };
 
-            return React.createElement(Component, {
-                ...props,
-                className: joinClassNames(...classNames, this.props.className),
-                [cssSetFlag]: isTargetStyledComponent ? true : undefined,
-            });
-        }
+        return observer(StyledComponent);
     };
-
-    return observer(StyledComponent);
-};
 
 export function appendImportant(cssProps: CSSProperties): CSSProperties {
     const important = '!important';

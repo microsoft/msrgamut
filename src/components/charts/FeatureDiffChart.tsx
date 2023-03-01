@@ -1,3 +1,6 @@
+// Copyright (c) Microsoft Corporation.
+// Licensed under the MIT license.
+
 import { extent, max, min } from 'd3-array';
 import { axisBottom, axisLeft } from 'd3-axis';
 import { format } from 'd3-format';
@@ -105,7 +108,7 @@ export class FeatureDiffChart extends React.Component<FeatureDiffChartProps> {
                                 transform={`translate(${featureDiffX(d.name)},0)`}>
                                 <rect
                                     className={`featureDiff-bar-rect bar bar--${d.pdep < 0 ? 'negative' : 'positive'} ${d.name === appStore.hoverFeature ? 'hover' : ''
-                                    }`}
+                                        }`}
                                     y={featureDiffY(Math.max(d.start, d.end))}
                                     height={
                                         d.name === 'intercept'
