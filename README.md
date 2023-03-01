@@ -4,7 +4,6 @@ Demo the prototype [here](https://microsoft.github.io/msrgamut)
 
 See the abstract for this project [here](https://www.microsoft.com/en-us/research/project/msrgamut/)
 
-For reference, you can view the following video:
 A paper, presented at SIGCHI 2019 in Glasgow, Scotland is available [here](https://www.microsoft.com/en-us/research/publication/gamut-a-design-probe-to-understand-howdata-scientists-understand-machine-learning-models/)
 
 ![Alt](images/gamscreenshot.PNG 'Screenshot')
