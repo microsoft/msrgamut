@@ -13,11 +13,12 @@
     },
     "alias": {
         "react": "./alias/react-external.js",
-        "react-dom": "./alias/react-dom-external.js"
+        "react-dom": "./alias/react-dom-external.js",
+        "react-dom/server": "./alias/react-dom-server-external.js"
     },
     "dependencies": {
-        "ag-grid-community": "^22.1.1",
-        "ag-grid-react": "^22.1.1",
+        "ag-grid-community": "^24.1.0",
+        "ag-grid-react": "^24.1.1",
         "axios": "^1.3.4",
         "d3-array": "^2.0.3",
         "d3-axis": "^1.0.12",
