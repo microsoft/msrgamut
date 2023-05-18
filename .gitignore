@@ -106,3 +106,6 @@ dist
 .parcel-cache
 __pycache__
 dist/
+.jekyll-cache
+docs/_site
+

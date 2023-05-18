@@ -122,6 +122,15 @@ export class InstanceTable extends React.Component<IInstanceTableProps> {
                         onGridReady={e => {
                             this.api = e.api;
                             e.columnApi.autoSizeColumns(e.columnApi.getAllColumns());
+
+                            //remove elements which fail aria-required-children for .ag-root element
+                            [
+                                document.querySelector('.ag-body-horizontal-scroll'),
+                                document.querySelector('.ag-overlay')
+                            ].forEach(el => {
+                                el.parentElement.removeChild(el);
+                            });
+
                         }}
                         onFilterChanged={e => this.numDisplayed = e.api.getDisplayedRowCount()}
                     />
