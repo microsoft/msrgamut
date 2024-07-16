@@ -2,9 +2,9 @@
 // Licensed under the MIT license.
 
 import { Button } from '@material-ui/core';
-import { ColDef, GridApi, ICellRendererFunc, ValueGetterParams } from 'ag-grid-community';
-import 'ag-grid-community/dist/styles/ag-grid.css';
-import 'ag-grid-community/dist/styles/ag-theme-balham.css';
+import { ColDef, GridApi, ICellRendererParams, ValueGetterParams } from 'ag-grid-community';
+import 'ag-grid-community/styles/ag-grid.css';
+import 'ag-grid-community/styles/ag-theme-balham.css';
 import { AgGridReact } from 'ag-grid-react';
 import { format } from 'd3-format';
 import { ScaleSequential } from 'd3-scale';
@@ -21,6 +21,19 @@ export interface IInstanceTableProps {
     colorDRPrediction: ScaleSequential<string>;
 }
 
+const numFormatter = (params: { value: number }) => format(',.2~f')(params.value);
+
+const ColorCellRenderer: React.FC<ICellRendererParams> = (params) => {
+    const backgroundColor = params.context.colorDRPrediction(params.value);
+    const formattedText = numFormatter(params);
+
+    return (
+        <div>
+            <div className="colorbox" style={{ backgroundColor }}></div>
+            <span>{formattedText}</span>
+        </div>
+    );
+};
 
 @observer
 export class InstanceTable extends React.Component<IInstanceTableProps> {
@@ -40,25 +53,12 @@ export class InstanceTable extends React.Component<IInstanceTableProps> {
         //use variable declared in outer scope
         currentTableData = this.props.instances.slice();
 
-        const colorCellRenderer: ICellRendererFunc = (params) => {
-            const cell = document.createElement('div');
-            const box = document.createElement('div');
-            box.className = 'colorbox';
-            box.style.backgroundColor = this.props.colorDRPrediction(params.value);
-            const text = document.createElement('span');
-            text.innerText = numFormatter(params);
-            cell.appendChild(box);
-            cell.appendChild(text);
-            return cell;
-        };
-
-        const numFormatter = (params: { value: number }) => format(',.2~f')(params.value);
         const common = { sortable: true, resizable: true };
 
         const columnDefs: ColDef[] = [
             { headerName: 'ID', field: 'id', sortable: true },
-            { headerName: 'Actual', field: 'y', cellRenderer: colorCellRenderer, type: 'numericColumn', valueFormatter: numFormatter, ...common },
-            { headerName: 'Predicted', field: 'prediction', cellRenderer: colorCellRenderer, type: 'numericColumn', valueFormatter: numFormatter, ...common },
+            { headerName: 'Actual', field: 'y', cellRenderer: ColorCellRenderer, type: 'numericColumn', valueFormatter: numFormatter, ...common },
+            { headerName: 'Predicted', field: 'prediction', cellRenderer: ColorCellRenderer, type: 'numericColumn', valueFormatter: numFormatter, ...common },
             {
                 headerName: 'Difference', type: 'numericColumn',
                 valueGetter: (params: ValueGetterParams) => Math.abs(params.data.y - params.data.prediction),
@@ -103,11 +103,16 @@ export class InstanceTable extends React.Component<IInstanceTableProps> {
 
                 <div className="ag-theme-balham instance-table" key="table">
                     <AgGridReact
+                        gridOptions={{
+                            context: {
+                                colorDRPrediction: this.props.colorDRPrediction,
+                            },
+                        }}
                         columnDefs={columnDefs}
                         rowData={currentTableData}
                         defaultColDef={defaultColDef}
                         rowSelection='multiple'
-                        getRowNodeId={r => r.id}
+                        getRowId={r => r.data.id}
                         onRowSelected={e => {
                             if (e.node.isSelected()) {
                                 if (e.api.getSelectedRows().length > 1) {
@@ -121,7 +126,7 @@ export class InstanceTable extends React.Component<IInstanceTableProps> {
                         }}
                         onGridReady={e => {
                             this.api = e.api;
-                            e.columnApi.autoSizeColumns(e.columnApi.getAllColumns());
+                            e.api.autoSizeColumns(e.api.getColumns());
 
                             //remove elements which fail aria-required-children for .ag-root element
                             [
